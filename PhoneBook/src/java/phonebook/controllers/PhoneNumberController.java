@@ -45,4 +45,13 @@ public class PhoneNumberController
     {
         return phonenumberDal.deleteById(id);
     }
+    public PhoneNumber deletePhoneNumberByAbonentId(int id)
+    {
+        return phonenumberDal.deleteByAbonentId(id);
+    }
+    
+     public List<PhoneNumber> getPhoneNumberByNumbers(String num)
+    {
+        return phonenumberDal.selectByNumbers(num);
+    }
 }
