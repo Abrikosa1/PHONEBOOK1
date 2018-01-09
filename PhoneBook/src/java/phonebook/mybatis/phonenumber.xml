@@ -5,7 +5,8 @@
  
     <resultMap id = "result" type = "phonebook.model.PhoneNumber"> 
        <result property = "id" column = "id"/> 
-       <result property = "phoneNum" column = "phoneNum"/> 
+       <result property = "phoneNum" column = "phoneNum"/>
+       <result property = "abonentId" column = "abonentId"/>
     </resultMap> 
  
     <select id = "selectAll" resultMap = "result"> 
@@ -15,19 +16,27 @@
     <select id = "selectById" parameterType = "int" resultMap = "result"> 
        SELECT * FROM phonenumber WHERE id = #{id}; 
     </select> 
+    
+    <select id = "selectByNumbers" parameterType = "string" resultMap = "result"> 
+       SELECT * FROM phonenumber WHERE phoneNum LIKE #{num} group by abonentId;
+    </select> 
 
     <update id = "update" parameterType = "phonebook.model.PhoneNumber"> 
        UPDATE phonenumber SET 
-        phoneNum = #{phoneNum}, 
+        phoneNum = #{phoneNum} 
         WHERE id = #{id}; 
     </update> 
   
     <delete id = "deleteById" parameterType = "int"> 
        DELETE from phonenumber WHERE id = #{id}; 
     </delete> 
+    
+     <delete id = "deleteByAbonentId" parameterType = "int"> 
+       DELETE from phonenumber WHERE abonentId = #{id}; 
+    </delete> 
 
     <insert id = "insert" parameterType = "phonebook.model.PhoneNumber"> 
-       INSERT INTO PhoneNumber (phoneNum)  
-       VALUES (#{phoneNum});     
+       INSERT INTO PhoneNumber (phoneNum,abonentId)  
+       VALUES (#{phoneNum},#{abonentId});     
     </insert>
 </mapper> 
