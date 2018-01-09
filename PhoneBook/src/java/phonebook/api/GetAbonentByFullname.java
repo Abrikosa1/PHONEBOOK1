@@ -13,13 +13,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import phonebook.controllers.AdminController;
-import phonebook.mappers.JsonAdminMapper;
-import phonebook.model.Admin;
+import phonebook.controllers.AbonentController;
+import phonebook.mappers.JsonAbonentMapper;
+import phonebook.model.Abonent;
 
-
-@WebServlet(name = "GetAdminById", urlPatterns = {"/GetAdminById"})
-public class GetAdminById extends HttpServlet {
+@WebServlet(name = "GetAbonentByFullname", urlPatterns = {"/GetAbonentByFullname"})
+public class GetAbonentByFullname extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,12 +32,12 @@ public class GetAdminById extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
         try (PrintWriter out = response.getWriter()) 
         {
-             AdminController adminController = new AdminController();
-             Admin admin= adminController.getAdminById(id);
-             String json=JsonAdminMapper.toJSON(admin);
+             AbonentController abonentController = new AbonentController();
+             List<Abonent> abonent= abonentController.getAbonentByFullname(name);
+             String json=JsonAbonentMapper.toJSON(abonent);
              out.println(json);
         }
     }

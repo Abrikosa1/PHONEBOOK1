@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package phonebook.api;
 
 import java.io.IOException;
@@ -13,13 +8,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import phonebook.controllers.AdminController;
-import phonebook.mappers.JsonAdminMapper;
-import phonebook.model.Admin;
+import phonebook.controllers.AbonentController;
+import phonebook.mappers.JsonAbonentMapper;
+import phonebook.model.Abonent;
 
-
-@WebServlet(name = "GetAdminById", urlPatterns = {"/GetAdminById"})
-public class GetAdminById extends HttpServlet {
+/**
+ *
+ * @author Alex
+ */
+@WebServlet(name = "UpdateAbonent", urlPatterns = {"/UpdateAbonent"})
+public class UpdateAbonent extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,13 +31,14 @@ public class GetAdminById extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        int id = Integer.parseInt(request.getParameter("id"));
+        String jsonObject = request.getParameter("json");
+        
         try (PrintWriter out = response.getWriter()) 
         {
-             AdminController adminController = new AdminController();
-             Admin admin= adminController.getAdminById(id);
-             String json=JsonAdminMapper.toJSON(admin);
-             out.println(json);
+           Abonent abonent = JsonAbonentMapper.fromJSON(jsonObject);
+           AbonentController  abonentController = new AbonentController();
+           int res = abonentController.updateAbonent(abonent);
+           out.print(res);
         }
     }
 

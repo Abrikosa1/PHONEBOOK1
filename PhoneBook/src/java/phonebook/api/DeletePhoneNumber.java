@@ -13,13 +13,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import phonebook.controllers.AdminController;
-import phonebook.mappers.JsonAdminMapper;
-import phonebook.model.Admin;
+import phonebook.controllers.PhoneNumberController;
+import phonebook.mappers.JsonPhoneNumberMapper;
+import phonebook.model.PhoneNumber;
 
 
-@WebServlet(name = "GetAdminById", urlPatterns = {"/GetAdminById"})
-public class GetAdminById extends HttpServlet {
+@WebServlet(name = "DeletePhoneNumber", urlPatterns = {"/DeletePhoneNumber"})
+public class DeletePhoneNumber extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,9 +36,9 @@ public class GetAdminById extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         try (PrintWriter out = response.getWriter()) 
         {
-             AdminController adminController = new AdminController();
-             Admin admin= adminController.getAdminById(id);
-             String json=JsonAdminMapper.toJSON(admin);
+             PhoneNumberController phonenumberController = new PhoneNumberController();
+             PhoneNumber phonenumber= phonenumberController.deletePhoneNumberById(id);
+             String json=JsonPhoneNumberMapper.toJSON(phonenumber);
              out.println(json);
         }
     }
