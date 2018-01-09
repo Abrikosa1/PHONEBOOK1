@@ -3,7 +3,7 @@ class AbonentService
     getAllAbonent()
     {
          var request = new XMLHttpRequest();
-         request.open('GET', '/Phonebook/GetAllAbonent',false);
+         request.open('GET', '/PhoneBook/GetAllAbonent',false);
          request.send();
          if (request.status != 200)  {
               alert( request.status + ': ' + request.statusText ); 
@@ -18,7 +18,7 @@ class AbonentService
     getAbonentById(id)
     {
          var request = new XMLHttpRequest();
-         request.open('GET', '/Phonebook/GetAbonentById?id=' + id, false);
+         request.open('GET', '/PhoneBook/GetAbonentById?id=' + id, false);
          request.send();
          if (request.status != 200)  {
               alert( request.status + ': ' + request.statusText ); 
@@ -33,7 +33,7 @@ class AbonentService
     deleteAbonentById(id)
     {
         var request = new XMLHttpRequest();
-        request.open('GET', '/Phonebook/DeleteAbonentById?id=' + id, false);
+        request.open('GET', '/PhoneBook/DeleteAbonentById?id=' + id, false);
          request.send();
          if (request.status != 200)  {
               alert( request.status + ': ' + request.statusText ); 
@@ -47,7 +47,7 @@ class AbonentService
     insertAbonent(json)
     {
         var request = new XMLHttpRequest();
-        request.open('GET', '/Phonebook/InsertAbonent?json='+json, false);
+        request.open('GET', '/PhoneBook/InsertAbonent?json='+json, false);
          request.send();
          if (request.status != 200)  {
               alert( request.status + ': ' + request.statusText ); 
@@ -61,7 +61,7 @@ class AbonentService
     updateAbonent(json)
     {
         var request = new XMLHttpRequest();
-        request.open('GET', '/Phonebook/UpdateAbonent?json='+json, false);
+        request.open('GET', '/PhoneBook/UpdateAbonent?json='+json, false);
          request.send();
          if (request.status != 200)  {
               alert( request.status + ': ' + request.statusText ); 
@@ -75,7 +75,7 @@ class AbonentService
     getAbonentByFullname(name)
     {
          var request = new XMLHttpRequest();
-         request.open('GET', '/Phonebook/GetAbonentByFullname?name=' + name, false);
+         request.open('GET', '/PhoneBook/GetAbonentByFullname?name=' + name, false);
          request.send();
          if (request.status != 200)  {
               alert( request.status + ': ' + request.statusText ); 

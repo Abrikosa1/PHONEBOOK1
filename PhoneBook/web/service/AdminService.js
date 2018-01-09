@@ -3,7 +3,7 @@ class AdminService
     getAllAdmin()
     {
          var request = new XMLHttpRequest();
-         request.open('GET', '/Phonebook/GetAllAdmin',false);
+         request.open('GET', '/PhoneBook/GetAllAdmin',false);
          request.send();
          if (request.status != 200)  {
               alert( request.status + ': ' + request.statusText ); 
@@ -18,7 +18,7 @@ class AdminService
     getAdminById(id)
     {
          var request = new XMLHttpRequest();
-         request.open('GET', '/Phonebook/GetAdminById?id=' + id, false);
+         request.open('GET', '/PhoneBook/GetAdminById?id=' + id, false);
          request.send();
          if (request.status != 200)  {
               alert( request.status + ': ' + request.statusText ); 
@@ -33,7 +33,7 @@ class AdminService
     deleteAbonentById(id)
     {
         var request = new XMLHttpRequest();
-        request.open('GET', '/Phonebook/DeleteAdminById?id=' + id, false);
+        request.open('GET', '/PhoneBook/DeleteAdminById?id=' + id, false);
          request.send();
          if (request.status != 200)  {
               alert( request.status + ': ' + request.statusText ); 

@@ -3,7 +3,7 @@ class PhoneNumberService
     getPhoneNumberByAbonentId(id)
     {
          var request = new XMLHttpRequest();
-         request.open('GET', '/Phonebook/GetAbonentById?id=' + id, false);
+         request.open('GET', '/PhoneBook/GetAbonentById?id=' + id, false);
          request.send();
          if (request.status != 200)  {
               alert( request.status + ': ' + request.statusText ); 
@@ -17,7 +17,7 @@ class PhoneNumberService
 
     getPhoneNumberById(id) {
          var request = new XMLHttpRequest();
-         request.open('GET', '/Phonebook/GetPhoneNumberById?id=' + id, false);
+         request.open('GET', '/PhoneBook/GetPhoneNumberById?id=' + id, false);
          request.send();
          if (request.status != 200)  {
               alert( request.status + ': ' + request.statusText ); 
@@ -30,7 +30,7 @@ class PhoneNumberService
     }
     getAllPhoneNumber() {
          var request = new XMLHttpRequest();
-         request.open('GET', '/Phonebook/GetAllPhoneNumber', false);
+         request.open('GET', '/PhoneBook/GetAllPhoneNumber', false);
          request.send();
          if (request.status != 200)  {
               alert( request.status + ': ' + request.statusText ); 
@@ -44,7 +44,7 @@ class PhoneNumberService
     insertPhoneNumber(json)
     {
         var request = new XMLHttpRequest();
-        request.open('GET', '/Phonebook/InsertPhoneNumber?json='+json, false);
+        request.open('GET', '/PhoneBook/InsertPhoneNumber?json='+json, false);
          request.send();
          if (request.status != 200)  {
               alert( request.status + ': ' + request.statusText ); 
@@ -58,7 +58,7 @@ class PhoneNumberService
       deletePhoneNumberById(id)
     {
         var request = new XMLHttpRequest();
-        request.open('GET', '/Phonebook/DeletePhoneNumberById?id=' + id, false);
+        request.open('GET', '/PhoneBook/DeletePhoneNumberById?id=' + id, false);
          request.send();
          if (request.status != 200)  {
               alert( request.status + ': ' + request.statusText ); 
@@ -72,7 +72,7 @@ class PhoneNumberService
     deletePhoneNumber(id)
     {
         var request = new XMLHttpRequest();
-        request.open('GET', '/Phonebook/DeletePhoneNumber?id=' + id, false);
+        request.open('GET', '/PhoneBook/DeletePhoneNumber?id=' + id, false);
          request.send();
          if (request.status != 200)  {
               alert( request.status + ': ' + request.statusText ); 
@@ -86,7 +86,7 @@ class PhoneNumberService
     updatePhoneNumber(json)
     {
         var request = new XMLHttpRequest();
-        request.open('GET', '/Phonebook/UpdatePhoneNumber?json='+json, false);
+        request.open('GET', '/PhoneBook/UpdatePhoneNumber?json='+json, false);
          request.send();
          if (request.status != 200)  {
               alert( request.status + ': ' + request.statusText ); 
@@ -100,7 +100,7 @@ class PhoneNumberService
     getPhoneNumByPhoneNum(num)
     {
          var request = new XMLHttpRequest();
-         request.open('GET', '/Phonebook/GetPhoneNumberByPhoneNum?num=' + num, false);
+         request.open('GET', '/PhoneBook/GetPhoneNumberByPhoneNum?num=' + num, false);
          request.send();
          if (request.status != 200)  {
               alert( request.status + ': ' + request.statusText ); 
