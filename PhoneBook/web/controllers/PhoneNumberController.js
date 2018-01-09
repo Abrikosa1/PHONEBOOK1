@@ -93,5 +93,23 @@ class PhoneNumberController
         var element =document.getElementById("phonenumber");
         element.innerHTML = result;
     }
+   
+    insertPhoneNumber(json)
+    {
+       return this.phonenumberService.insertPhoneNumber(json);   
+    }
     
+    deletePhoneNumberById(id)
+    {
+        return this.phonenumberService.deletePhoneNumberById(id);
+    }
+    deletePhoneNumber(id)
+    {
+        return this.phonenumberService.deletePhoneNumber(id);
+    }
+    updatePhoneNumber(json)
+    {
+       return this.phonenumberService.updatePhoneNumber(json);  
+    }
+
 }
